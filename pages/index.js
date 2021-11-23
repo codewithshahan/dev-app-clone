@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
+import Loader from "../components/Loader";
 
 export default function Home() {
   return (
@@ -17,14 +18,7 @@ export default function Home() {
 
       <h1>Index page</h1>
 
-      <Link
-        href={{
-          pathname: "/[username]",
-          query: { username: "shahan" },
-        }}
-      >
-        <a>shahan</a>
-      </Link>
+      <Loader show />
     </div>
   );
 }
