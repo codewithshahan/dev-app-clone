@@ -1,11 +1,24 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import { UserContext } from "../lib/context";
+import UsernameForm from "../components/UsernameForm";
+import SignInButton from "../components/SignInButton";
+import SignOutButton from "../components/SignOutButton";
 
-function enter() {
+export default function Enter() {
+  const { user, username } = useContext(UserContext);
+
   return (
     <main>
-      <h1>Enter Page</h1>
+      {/* <Metatags title="Enter" description="Sign up for this amazing app!" /> */}
+      {user ? (
+        !username ? (
+          <UsernameForm />
+        ) : (
+          <SignOutButton />
+        )
+      ) : (
+        <SignInButton />
+      )}
     </main>
   );
 }
-
-export default enter;

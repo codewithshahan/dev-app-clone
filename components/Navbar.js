@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import Link from "next/link";
+import { UserContext } from "../lib/context";
+import { auth } from "../lib/firebase";
 
 function Navbar() {
-  const username = true;
-  const user = true;
+  const { user, username } = useContext(UserContext);
 
   return (
     <nav className="navbar">
@@ -17,7 +18,7 @@ function Navbar() {
         {username && (
           <>
             <li className="push-left">
-              <button>Sign Out</button>
+              <button onClick={() => auth.signOut()}>Sign Out</button>
             </li>
 
             <li>
